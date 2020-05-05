@@ -31,7 +31,7 @@
 					<td><%= project.max_duration %></td>
 					<td><%= number_with_precision(project.predicted_duration, precision: 1) %></td>
 					<td><%= link_to edit_project_path(project) do %>
-						<%= icon('edit')%>
+						<i class="fa fa-edit"></i>
 						<% end %></td>
 					<td><%= link_to project_path(project),
 	                				method: :delete,
