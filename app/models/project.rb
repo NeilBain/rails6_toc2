@@ -8,6 +8,6 @@ class Project < ApplicationRecord
     def reset_totals
       self.min_duration = tasks.sum(:av_duration)
       self.max_duration = tasks.sum(:max_duration)
-      self.predicted_duration = tasks.sum(:av_duration)+(tasks.sum(:toc_factor)**0.5*2)
+      self.predicted_duration = tasks.sum(:av_duration)+(tasks.sum(:toc)**0.5*2)
     end                              
 end

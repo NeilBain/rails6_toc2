@@ -4,7 +4,7 @@ class Task < ApplicationRecord
     validates :av_duration, numericality: {less_than_or_equal_to: :max_duration}, allow_nil: true 
     validates :max_duration, numericality: {greater_than_or_equal_to: :av_duration}, allow_nil: true
   
-    before_save :calculate_toc_factor
+#    before_save :calculate_toc_factor
     after_save :calculate_project_buffer
     after_destroy :calculate_project_buffer
   
