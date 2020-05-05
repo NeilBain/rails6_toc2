@@ -44,6 +44,7 @@
 					<th>Average Duration</th>
 					<th>Maximum Duration</th>
 					<th>ToC Factor</th>
+					<th>ToC Factor 2</th>
 					<th>Due Date</th>
 					<th>Complete?</th>
 					<th></th>
@@ -57,6 +58,7 @@
 					<td><%= task.av_duration %></td>
 					<td><%= task.max_duration %></td>
 					<td><%= task.toc_factor %></td>
+					<td><%= task.toc %></td>
 					<td><%= task.due_date %></td>
 					<td><%= task.completed.yesno %></td>
 					<td><%= link_to project_task_path(task),
