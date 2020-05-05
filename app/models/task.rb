@@ -9,9 +9,9 @@ class Task < ApplicationRecord
     after_destroy :calculate_project_buffer
   
   
-    def calculate_toc_factor
-      self.toc_factor = ((self.max_duration - self.av_duration)/2)**2
-    end
+#    def calculate_toc_factor
+#      self.toc_factor = ((self.max_duration - self.av_duration)/2)**2
+#    end
   
     def calculate_project_buffer
       @project = Project.find(self.project_id)
