@@ -57,6 +57,7 @@ CREATE TABLE `tasks` (
   `project_id` int(11) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
+  `toc` double GENERATED ALWAYS AS (pow(((`max_duration` - `av_duration`) / 2),2)) STORED,
   PRIMARY KEY (`id`),
   KEY `index_tasks_on_project_id` (`project_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -72,6 +73,7 @@ CREATE TABLE `tasks` (
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 INSERT INTO `schema_migrations` (version) VALUES
-('20170523084500');
+('20170523084500'),
+('20200505070352');
 
 
