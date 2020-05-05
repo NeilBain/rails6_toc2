@@ -33,7 +33,7 @@ CREATE TABLE `projects` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `schema_migrations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -58,9 +58,10 @@ CREATE TABLE `tasks` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   `toc` double GENERATED ALWAYS AS (pow(((`max_duration` - `av_duration`) / 2),2)) STORED,
+  `row_order` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_tasks_on_project_id` (`project_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -74,6 +75,7 @@ CREATE TABLE `tasks` (
 
 INSERT INTO `schema_migrations` (version) VALUES
 ('20170523084500'),
-('20200505070352');
+('20200505070352'),
+('20200505180318');
 
 

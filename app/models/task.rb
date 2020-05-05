@@ -7,7 +7,10 @@ class Task < ApplicationRecord
 #    before_save :calculate_toc_factor
     after_save :calculate_project_buffer
     after_destroy :calculate_project_buffer
-  
+ 
+
+    include RankedModel
+    ranks :row_order
   
 #    def calculate_toc_factor
 #      self.toc_factor = ((self.max_duration - self.av_duration)/2)**2
