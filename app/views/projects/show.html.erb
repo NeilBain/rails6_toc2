@@ -44,7 +44,6 @@
 					<th>Average Duration</th>
 					<th>Maximum Duration</th>
 					<th>ToC Factor</th>
-					<th>ToC Factor 2</th>
 					<th>Due Date</th>
 					<th>Complete?</th>
 					<th></th>
@@ -57,14 +56,13 @@
 						<% end %></td>
 					<td><%= task.av_duration %></td>
 					<td><%= task.max_duration %></td>
-					<td><%= task.toc_factor %></td>
 					<td><%= task.toc %></td>
 					<td><%= task.due_date %></td>
 					<td><%= task.completed.yesno %></td>
 					<td><%= link_to project_task_path(task),
 	                				method: :delete,
 	                				data: { confirm: 'Are you sure you want to delete this? (Cannot be undone)' } do %>
-									<i class="fa fa-trash-alt"></i>
+									<%= icon('trash')%>
 									<% end %>
 				</tr>
 				<% end %>
