@@ -10,6 +10,53 @@
   </head>
 
   <body>
-    <%= yield %>
+	<header id="centred-header" class="float">
+	        <div class="container clear">
+	            <div class="row align-items-center">
+	                <div id="logo" class="col">
+	                    <a href="https://www.po4management.co.uk/">
+	                        <img src="https://www.po4management.co.uk/wp-content/uploads/2019/08/Master_PO4_Logo.png" alt="PO4 Management">
+	                    </a>
+	                </div>
+
+	            </div>
+	        </div>
+	        <nav id="menus" class="float d-none">
+	            <div class="container">
+	                <ul id="header-menu" class="sm sm-clean nav-menu">
+	                    <li id="menu-item-822" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-5 current_page_item menu-item-822">
+	                        <a href="https://www.po4management.co.uk/" aria-current="page">Home</a>
+	                    </li>
+	                </ul>
+	            </div>
+	        </nav>
+	    </header>
+
+	    <div id="flexible-content" class="col order-first">
+	        <section class="ctas  light-bg">
+	            <div class="container">
+					<%= yield %>
+	        </section>
+
+
+	    <div id="copyright">
+	        <div class="container">
+	            <div class="row">
+	                <div class="col-12">
+	                    <p>
+	                        &copy; PO4 Management 2020 
+	                        <span class="credit">
+	                            Web Design & Development by 
+	                            <a target="_blank" href="https://www.eldowebdesign.co.uk">Eldo Web Design</a>
+	                        </span>
+	                    </p>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+
+	    <div class="fab-container">
+	        <div class="to-top"></div>
+	    </div>
   </body>
 </html>
