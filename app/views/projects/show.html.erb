@@ -52,7 +52,7 @@
 
 				<% @project.tasks.each do |task| %>
 				<tr>
-					<td><i class="fa fa-caret-up"></i></td>
+					<td><i class="fa fa-caret-up">/<i class="fa fa-caret-down"></i></td>
 					<td><%= link_to edit_project_task_path(task) do %>
 						<%= task.description %>
 						<% end %></td>
