@@ -40,10 +40,11 @@
 		<table class='table table-striped' id='sortable'>
 			<tbody>
 				<tr>
+					<th>Nav.</th>
 					<th>Description</th>
-					<th>Average Duration</th>
-					<th>Maximum Duration</th>
-					<th>ToC Factor</th>
+					<th>Av. Duration</th>
+					<th>Max Duration</th>
+					<th>Plan Duration</th>
 					<th>Due Date</th>
 					<th>Complete?</th>
 					<th></th>
@@ -51,12 +52,13 @@
 
 				<% @project.tasks.each do |task| %>
 				<tr>
+					<td><i class="fas fa-caret-up"></i></td>
 					<td><%= link_to edit_project_task_path(task) do %>
 						<%= task.description %>
 						<% end %></td>
 					<td><%= task.av_duration %></td>
 					<td><%= task.max_duration %></td>
-					<td><%= task.toc %></td>
+					<td><%= (task.av_duration + task.toc) %></td>
 					<td><%= task.due_date %></td>
 					<td><%= task.completed.yesno %></td>
 					<td><%= link_to project_task_path(task),
