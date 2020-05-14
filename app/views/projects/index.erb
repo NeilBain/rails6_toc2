@@ -27,9 +27,9 @@
   	  			<tr>
     				<td><%= link_to project.title, project_path(project) %></td>
     				<td><%= project.description %></td>
-					<td><%= project.min_duration %></td>
-					<td><%= project.max_duration %></td>
-					<td><%= number_with_precision(project.predicted_duration, precision: 1) %></td>
+					<td><%= ngb_format(project.min_duration) %></td>
+					<td><%= ngb_format(project.max_duration) %></td>
+					<td><%= ngb_format(project.predicted_duration) %></td>
 					<td><%= link_to edit_project_path(project) do %>
 						<i class="fa fa-edit"></i>
 						<% end %></td>
