@@ -16,15 +16,15 @@
 				</tr>
 				<tr>
 					<td>Minimum Duration</td>
-					<td><%= @project.min_duration %></td>
+					<td><%= ngb_format(@project.min_duration) %></td>
 				</tr>
 				<tr>
 					<td>Maximum Duration</td>
-					<td><%= @project.max_duration %></td>
+					<td><%= ngb_format(@project.max_duration) %></td>
 				</tr>
 				<tr>
 					<td>Predicted Duration</td>
-					<td><%= number_with_precision(@project.predicted_duration, precision: 1) %></td>
+					<td><%= ngb_format(@project.predicted_duration) %></td>
 				</tr>
 			</tbody>
 		</table>
@@ -56,9 +56,9 @@
 					<td><%= link_to edit_project_task_path(task) do %>
 						<%= task.description %>
 						<% end %></td>
-					<td><%= task.av_duration %></td>
-					<td><%= task.max_duration %></td>
-					<td><%= (task.av_duration + task.toc) %></td>
+					<td><%= ngb_format(task.av_duration) %></td>
+					<td><%= ngb_format(task.max_duration) %></td>
+					<td><%= ngb_format(task.av_duration + task.toc) %></td>
 					<td><%= task.due_date %></td>
 					<td><%= task.completed.yesno %></td>
 					<td><%= link_to project_task_path(task),
