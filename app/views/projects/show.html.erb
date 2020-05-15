@@ -52,10 +52,13 @@
 
 				<% @project.tasks.sort_by {|a| a.row_order}.each do |task| %>
 				<tr>
-					<td><%= link_to ranked_project_task_path(:id => task.id, :project_id => task.project_id) do %>
+					<td><%= link_to ranked_project_task_path(:id => task.id, :project_id => task.project_id, :direction => 'up') do %>
 						<i class="fa fa-caret-up"></i>
 					    <% end %>
-						/<i class="fa fa-caret-down"></i></td>
+					    /
+					    <%= link_to ranked_project_task_path(:id => task.id, :project_id => task.project_id, :direction => 'down') do %>
+						<i class="fa fa-caret-down"></i>
+					    <% end %>
 					<td><%= link_to edit_project_task_path(task) do %>
 						<%= task.description %>
 					    <% end %></td>
