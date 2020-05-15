@@ -53,7 +53,7 @@
 				<% @project.tasks.sort_by {|a| a.row_order}.each do |task| %>
 				<tr>
 					<td><%= link_to ranked_project_task_path(:id => task.id, :project_id => task.project_id) do %>
-							<i class="fa fa-caret-up">
+						<i class="fa fa-caret-up"></i>
 					    <% end %>
 						/<i class="fa fa-caret-down"></i></td>
 					<td><%= link_to edit_project_task_path(task) do %>
