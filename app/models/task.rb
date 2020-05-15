@@ -1,8 +1,10 @@
 class Task < ApplicationRecord
   belongs_to :project
   
-    validates :av_duration, numericality: {less_than_or_equal_to: :max_duration}, allow_nil: true 
-    validates :max_duration, numericality: {greater_than_or_equal_to: :av_duration}, allow_nil: true
+    validates :av_duration, numericality: {less_than_or_equal_to: :max_duration}, allow_nil: false
+    validates :max_duration, numericality: {greater_than_or_equal_to: :av_duration}, allow_nil: false
+    validates :description, presence: true,
+                      length: { minimum: 5 }
   
 #    before_save :calculate_toc_factor
     after_save :calculate_project_buffer
