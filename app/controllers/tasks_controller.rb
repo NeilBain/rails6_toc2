@@ -9,10 +9,17 @@ class TasksController < ApplicationController
     @project = Project.find(params[:id])
     @task = @project.tasks.find(params[:project_id])
   end
-  
-  def update
+
+  def ranked
     @project = Project.find(params[:project_id])
     @task = @project.tasks.find(params[:id])
+    @task.update :row_order_position => params[:direction]
+    redirect_to project_path(@project)
+  end
+  
+  def update
+    @project = Project.find(params[:id])
+    @task = @project.tasks.find(params[:project_id])
 
     if @task.update(task_params)
       redirect_to @project
@@ -31,6 +38,6 @@ class TasksController < ApplicationController
  
   private
     def task_params
-      params.require(:task).permit(:id, :description, :av_duration, :max_duration, :toc, :completed, :due_date, :project_id)
+      params.permit(:task).permit(:id, :description, :av_duration, :max_duration, :toc, :completed, :due_date, :project_id)
     end
 end

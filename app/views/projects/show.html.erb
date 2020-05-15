@@ -50,12 +50,18 @@
 					<th></th>
 				</tr>
 
-				<% @project.tasks.each do |task| %>
+				<% @project.tasks.sort_by {|a| a.row_order}.each do |task| %>
 				<tr>
-					<td><i class="fa fa-caret-up">/<i class="fa fa-caret-down"></i></td>
+					<td><%= link_to ranked_project_task_path(:id => task.id, :project_id => task.project_id, :direction => 'up') do %>
+						<i class="fa fa-caret-up"></i>
+					    <% end %>
+					    /
+					    <%= link_to ranked_project_task_path(:id => task.id, :project_id => task.project_id, :direction => 'down') do %>
+						<i class="fa fa-caret-down"></i>
+					    <% end %>
 					<td><%= link_to edit_project_task_path(task) do %>
 						<%= task.description %>
-						<% end %></td>
+					    <% end %></td>
 					<td><%= ngb_format(task.av_duration) %></td>
 					<td><%= ngb_format(task.max_duration) %></td>
 					<td><%= ngb_format(task.av_duration + task.toc) %></td>
