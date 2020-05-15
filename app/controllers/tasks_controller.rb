@@ -9,6 +9,13 @@ class TasksController < ApplicationController
     @project = Project.find(params[:id])
     @task = @project.tasks.find(params[:project_id])
   end
+
+  def ranked
+    @project = Project.find(params[:project_id])
+    @task = @project.tasks.find(params[:id])
+    @task.update :row_order_position => :up
+    redirect_to project_path(@project)
+  end
   
   def update
     @project = Project.find(params[:id])

@@ -50,11 +50,9 @@
 					<th></th>
 				</tr>
 
-				<% @project.tasks.each do |task| %>
+				<% @project.tasks.sort_by {|a| a.row_order}.each do |task| %>
 				<tr>
-					<td><%= link_to project_task_path(task),
-						method: :patch,
-						data: {  } do %>
+					<td><%= link_to ranked_project_task_path(:id => task.id, :project_id => task.project_id) do %>
 							<i class="fa fa-caret-up">
 					    <% end %>
 						/<i class="fa fa-caret-down"></i></td>
