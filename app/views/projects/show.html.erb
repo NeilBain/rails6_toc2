@@ -52,10 +52,15 @@
 
 				<% @project.tasks.each do |task| %>
 				<tr>
-					<td><i class="fa fa-caret-up">/<i class="fa fa-caret-down"></i></td>
+					<td><%= link_to project_task_path(task),
+						method: :patch,
+						data: {  } do %>
+							<i class="fa fa-caret-up">
+					    <% end %>
+						/<i class="fa fa-caret-down"></i></td>
 					<td><%= link_to edit_project_task_path(task) do %>
 						<%= task.description %>
-						<% end %></td>
+					    <% end %></td>
 					<td><%= ngb_format(task.av_duration) %></td>
 					<td><%= ngb_format(task.max_duration) %></td>
 					<td><%= ngb_format(task.av_duration + task.toc) %></td>
