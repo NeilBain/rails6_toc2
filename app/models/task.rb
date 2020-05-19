@@ -22,6 +22,6 @@ class Task < ApplicationRecord
   
     def calculate_project_buffer
       @project = Project.find(self.project_id)
-      @project.update_attributes(min_duration: 1)
+      @project.update(min_duration: 1)
     end
 end
