@@ -44,7 +44,6 @@
 					<th>Description</th>
 					<th>Av. Duration</th>
 					<th>Max Duration</th>
-					<th>Plan Duration</th>
 					<th>Due Date</th>
 					<th>Complete?</th>
 					<th></th>
@@ -64,7 +63,6 @@
 					    <% end %></td>
 					<td><%= ngb_format(task.av_duration) %></td>
 					<td><%= ngb_format(task.max_duration) %></td>
-					<td><%= ngb_format(task.av_duration + task.toc) %></td>
 					<td><%= task.due_date %></td>
 					<td><%= task.completed.yesno %></td>
 					<td><%= link_to project_task_path(task),
