@@ -6,59 +6,59 @@
 
 <div class='content-section-b'>
 	<div class=container>
-		<%= link_to '<-- Back', projects_path %><br> 
- 
-		<table class='table'>
-			<tbody>
-				<tr>
-					<td>Description</td>
-					<td><%= @project.description %></td>
-				</tr>
-				<tr>
-					<td>Minimum Duration</td>
-					<td><%= ngb_format(@project.min_duration) %></td>
-				</tr>
-				<tr>
-					<td>Maximum Duration</td>
-					<td><%= ngb_format(@project.max_duration) %></td>
-				</tr>
-				<tr>
-					<td>Predicted Duration</td>
-					<td><%= ngb_format(@project.predicted_duration) %></td>
-				</tr>
-			</tbody>
-		</table>
-		<%= link_to edit_project_path(@project) do %>
-		<i class="fa fa-edit"></i> Edit this Project
-		<% end %><br>
-	</div>
+	<%= link_to '<-- Back', projects_path %><br> 
+
+	<table class='table'>
+		<tbody>
+			<tr>
+				<td>Description</td>
+				<td><%= @project.description %></td>
+			</tr>
+			<tr>
+				<td>Minimum Duration</td>
+				<td><%= ngb_format(@project.min_duration) %></td>
+			</tr>
+			<tr>
+				<td>Maximum Duration</td>
+				<td><%= ngb_format(@project.max_duration) %></td>
+			</tr>
+			<tr>
+				<td>Predicted Duration</td>
+				<td><%= ngb_format(@project.predicted_duration) %></td>
+			</tr>
+		</tbody>
+	</table>
+	<%= link_to edit_project_path(@project) do %>
+	<i class="fa fa-edit"></i> Edit this Project
+	<% end %><br>
+</div>
 </div>
 
 <div class='content-section-a'>
-	<div class='container'>
-		<h2>Tasks for <%= @project.title %></h2>
-		<table class='table table-striped' id='sortable'>
-			<tbody>
-				<tr>
-					<th>Nav.</th>
-					<th>Description</th>
-					<th>Av. Duration</th>
-					<th>Max Duration</th>
-					<th>Due Date</th>
-					<th>Complete?</th>
-					<th></th>
-				</tr>
+<div class='container'>
+	<h2>Tasks for <%= @project.title %></h2>
+	<table class='table table-striped' id='sortable'>
+		<tbody>
+			<tr>
+				<th>Nav.</th>
+				<th>Description</th>
+				<th>Av. Duration</th>
+				<th>Max Duration</th>
+				<th>Due Date</th>
+				<th>Complete?</th>
+				<th></th>
+			</tr>
 
-				<% @project.tasks.sort_by {|a| a.row_order}.each do |task| %>
-				<tr>
-					<td><%= link_to ranked_project_task_path(:id => task.id, :project_id => task.project_id, :direction => 'up') do %>
+			<% @project.tasks.sort_by {|a| a.row_order}.each do |task| %>
+			<tr>
+				<td><%= link_to ranked_project_task_path(:id => task.id, :project_id => task.project_id, :direction => 'up') do %>
 						<i class="fa fa-caret-up"></i>
 					    <% end %>
 					    /
 					    <%= link_to ranked_project_task_path(:id => task.id, :project_id => task.project_id, :direction => 'down') do %>
 						<i class="fa fa-caret-down"></i>
 					    <% end %>
-					<td><%= link_to edit_project_task_path(task) do %>
+					    <td><%= link_to edit_project_task_path(task) do %>
 						<%= task.description %>
 					    <% end %></td>
 					<td><%= ngb_format(task.av_duration) %></td>
