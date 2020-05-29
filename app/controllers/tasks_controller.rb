@@ -5,7 +5,8 @@ class TasksController < ApplicationController
     redirect_to project_path(@project)
   end
   
-  def edit 
+  def edit
+    puts params.inspect 
     @project = Project.find(params[:id])
     @task = @project.tasks.find(params[:project_id])
   end
