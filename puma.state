@@ -1,0 +1,4 @@
+---
+pid: 21083
+control_url: unix:///home/neilb/www/rails6_toc2/pumactl.sock
+control_auth_token: bc118a3922f4426f16411d22ca8c50f
